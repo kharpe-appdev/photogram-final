@@ -31,6 +31,14 @@
         <input type="text" id="recipient_id_box" name="query_recipient_id">
       </div>
 
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status">
+      </div>
+
       <button>
         Create follow request
       </button>
@@ -53,6 +61,10 @@
 
         <th>
           Recipient
+        </th>
+
+        <th>
+          Status
         </th>
 
         <th>
@@ -79,6 +91,10 @@
 
         <td>
           <%= a_follow_request.recipient_id %>
+        </td>
+
+        <td>
+          <%= a_follow_request.status %>
         </td>
 
         <td>

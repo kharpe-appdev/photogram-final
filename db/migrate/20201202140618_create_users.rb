@@ -4,9 +4,12 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :email
       t.string :password_digest
       t.string :username
+      t.integer :comments_count
+      t.integer :likes_count
       t.integer :sent_follow_requests_count
       t.integer :received_follow_requests_count
       t.integer :own_photos_count
+      t.boolean :private
 
       t.timestamps
     end
