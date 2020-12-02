@@ -97,4 +97,8 @@ class UserAuthenticationController < ApplicationController
     render({ :tempalte => "user_authentication/index.html.erb" })
   end
 
+  def show
+    render({ :template => "user_authentication/show.html.erb" })
+  end
+
 end

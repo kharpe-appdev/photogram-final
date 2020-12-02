@@ -106,4 +106,12 @@ Rails.application.routes.draw do
              
   #------------------------------
 
+  # USERS PAGES
+
+  get("/users", { :controller => "user_authentication", :action => "index" })
+
+  get("/users/:path_username", { :controller => "user_authentication", :action => "show" })
+
+
+
 end
