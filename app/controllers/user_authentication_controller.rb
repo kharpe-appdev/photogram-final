@@ -116,7 +116,9 @@ class UserAuthenticationController < ApplicationController
     pending_follow_requests = received_follow_requests.where(:status => "pending" )
     @requests_pending = pending_follow_requests
 
-    if @the_user.private == true
+    if @the_user.id == @current_user.id
+      render({ :template => "user_authentication/show.html.erb" })
+    elsif @the_user.private == true
       redirect_to("/", :alert => "You are not authorized for that.")
     else
       render({ :template => "user_authentication/show.html.erb" })
