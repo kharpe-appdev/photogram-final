@@ -109,4 +109,15 @@ class UserAuthenticationController < ApplicationController
     end
   end
 
+  def show_liked_photos
+    the_username = params.fetch("path_username")
+    @the_user = User.where({ :username => the_username }).at(0)
+
+    if @the_user.private == true
+      redirect_to("/", :alert => "You are not authorized for that.")
+    else
+      render({ :template => "user_authentication/show_liked_photos.html.erb" })
+    end
+  end
+
 end
