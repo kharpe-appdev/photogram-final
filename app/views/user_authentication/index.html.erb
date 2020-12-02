@@ -31,7 +31,13 @@
 
       <td>
         <% if session[:user_id] != nil %>
-          Follow Button
+          <form action="/insert_follow_request" method="post">
+              <input type="hidden" name="query_recipient_id" value="91"<%= session[:user_id] %>>
+
+              <button>
+                Follow
+              </button>
+            </form>
         <% else %>
         <% end %>
       </td>
