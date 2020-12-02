@@ -20,7 +20,7 @@
 
       </div>
 
-      <% if @current_user = @the_user %>
+      <% if @current_user.id == @the_user.id %>
         <h4>Pending follow requests</h4>
 
         <ul>

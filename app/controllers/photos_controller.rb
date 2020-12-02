@@ -6,6 +6,7 @@ class PhotosController < ApplicationController
     matching_photos = Photo.all
 
     @list_of_photos = matching_photos.order({ :created_at => :desc })
+    
 
     render({ :template => "layouts/photos/index.html.erb" })
   end
