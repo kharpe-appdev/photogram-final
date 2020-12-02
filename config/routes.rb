@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
  
+  # Homepage
+  get("/", { :controller => "user_authentication", :action => "index" })
+  
   # Routes for the Comment resource:
 
   # CREATE

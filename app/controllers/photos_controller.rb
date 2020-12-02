@@ -1,4 +1,7 @@
 class PhotosController < ApplicationController
+  
+  before_action(:force_user_sign_in, :except => [:index])
+  
   def index
     matching_photos = Photo.all
 

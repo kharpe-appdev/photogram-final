@@ -92,5 +92,9 @@ class UserAuthenticationController < ApplicationController
     
     redirect_to("/", { :notice => "User account cancelled" })
   end
- 
+
+  def index
+    render({ :tempalte => "user_authentication/index.html.erb" })
+  end
+
 end
