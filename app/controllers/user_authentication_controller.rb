@@ -95,6 +95,13 @@ class UserAuthenticationController < ApplicationController
   end
 
   def index
+    the_user_id = session[:user_id]
+    @the_user = User.where({ :id => the_user_id }).at(0)
+
+    sent_follow_requests = @the_user.sent_follow_requests
+    pending_follow_requests = sent_follow_requests.where(:status => "pending" )
+    @requests_pending = pending_follow_requests
+    
     render({ :tempalte => "user_authentication/index.html.erb" })
   end
 
