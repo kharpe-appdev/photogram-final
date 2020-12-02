@@ -32,8 +32,9 @@
       <% if session[:user_id] != nil %>
         <td>
           <%# if a request has already been sent to a_user, then put Request sent. Cancel (link to cancel) %>
-          <% if @requests_pending.where(:recipient_id => a_user.id).at(0) != nil %>
-            Request sent.
+          <% this_request = @requests_pending.where(:recipient_id => a_user.id).at(0) %>
+          <% if this_request != nil %>
+            Request sent. <a href="/delete_follow_request/<%= this_request.id %>">Cancel</a>
           <% else %>
             <form action="/insert_follow_request" method="post">
               <input type="hidden" name="query_recipient_id" value="<%= a_user.id %>">
