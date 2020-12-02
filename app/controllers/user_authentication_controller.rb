@@ -1,6 +1,7 @@
 class UserAuthenticationController < ApplicationController
   # Uncomment this if you want to force users to sign in before any other actions
-  skip_before_action(:force_user_sign_in, { :only => [:sign_up_form, :create, :sign_in_form, :create_cookie, :update, :show] })
+  # means "don't run the force_user_sign_in method for the :only list here..."
+  skip_before_action(:force_user_sign_in, { :only => [:sign_up_form, :create, :sign_in_form, :create_cookie, :index] })
 
   def sign_in_form
     render({ :template => "user_authentication/sign_in.html.erb" })
@@ -99,9 +100,13 @@ class UserAuthenticationController < ApplicationController
 
   def show
     the_username = params.fetch("path_username")
-    @the_user = User.where(:username => the_username).at(0)
+    @the_user = User.where({ :username => the_username }).at(0)
 
-    render({ :template => "user_authentication/show.html.erb" })
+    if @the_user.private == true
+      redirect_to("/", :alert => "You are not authorized for that.")
+    else
+      render({ :template => "user_authentication/show.html.erb" })
+    end
   end
 
 end
