@@ -12,8 +12,8 @@
 class FollowRequest < ApplicationRecord
 
   # Direct Associations
-  belongs_to(:sender, { :required => false, :class_name => "User", :foreign_key => "sender_id", :counter_cache => :sent_follow_requests_count })
-  belongs_to(:recipient, { :required => false, :class_name => "User", :foreign_key => "recipient_id", :counter_cache => :received_follow_requests_count })
+  belongs_to(:sender, { :required => true, :class_name => "User", :foreign_key => "sender_id", :counter_cache => :sent_follow_requests_count })
+  belongs_to(:recipient, { :required => true, :class_name => "User", :foreign_key => "recipient_id", :counter_cache => :received_follow_requests_count })
 
   # Validations
   validates(:sender_id, { :presence => true })
