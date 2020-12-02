@@ -30,7 +30,7 @@ class PhotosController < ApplicationController
       the_photo.save
       redirect_to("/photos", { :notice => "Photo created successfully." })
     else
-      redirect_to("/photos", { :notice => "Photo failed to create successfully." })
+      redirect_to("/photos", { :alert => "Photo failed to create successfully." })
     end
   end
 

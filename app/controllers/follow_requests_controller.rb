@@ -27,7 +27,7 @@ class FollowRequestsController < ApplicationController
       the_follow_request.save
       redirect_to("/follow_requests", { :notice => "Follow request created successfully." })
     else
-      redirect_to("/follow_requests", { :notice => "Follow request failed to create successfully." })
+      redirect_to("/follow_requests", { :alert => "Follow request failed to create successfully." })
     end
   end
 

@@ -26,7 +26,7 @@ class LikesController < ApplicationController
       the_like.save
       redirect_to("/likes", { :notice => "Like created successfully." })
     else
-      redirect_to("/likes", { :notice => "Like failed to create successfully." })
+      redirect_to("/likes", { :alert => "Like failed to create successfully." })
     end
   end
 

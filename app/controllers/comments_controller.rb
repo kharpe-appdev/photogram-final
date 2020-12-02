@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
       the_comment.save
       redirect_to("/comments", { :notice => "Comment created successfully." })
     else
-      redirect_to("/comments", { :notice => "Comment failed to create successfully." })
+      redirect_to("/comments", { :alert => "Comment failed to create successfully." })
     end
   end
 
