@@ -102,6 +102,10 @@ class UserAuthenticationController < ApplicationController
     the_username = params.fetch("path_username")
     @the_user = User.where({ :username => the_username }).at(0)
 
+    received_follow_requests = @the_user.received_follow_requests
+    pending_follow_requests = received_follow_requests.where(:status => "pending" )
+    @requests_pending = pending_follow_requests
+
     if @the_user.private == true
       redirect_to("/", :alert => "You are not authorized for that.")
     else
@@ -117,6 +121,17 @@ class UserAuthenticationController < ApplicationController
       redirect_to("/", :alert => "You are not authorized for that.")
     else
       render({ :template => "user_authentication/show_liked_photos.html.erb" })
+    end
+  end
+
+  def show_feed
+    the_username = params.fetch("path_username")
+    @the_user = User.where({ :username => the_username }).at(0)      
+
+    if @the_user.private == true
+      redirect_to("/", :alert => "You are not authorized for that.")
+    else
+      render({ :template => "user_authentication/show_feed.html.erb" })
     end
   end
 

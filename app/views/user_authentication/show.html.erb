@@ -16,7 +16,19 @@
               Follow
             </button>
           </form>
-    </div>
+      </div>
+
+      </div>
+
+      <% if @current_user = @the_user %>
+        <h4>Pending follow requests</h4>
+
+        <ul>
+          <% @requests_pending.each do |a_request| %>
+            <%= a_request.sender.username %>
+          <% end %>
+        </ul>
+      <% end %>
 
   </dd>
 

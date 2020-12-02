@@ -114,6 +114,7 @@ Rails.application.routes.draw do
 
   get("/users/:path_username/liked_photos", { :controller => "user_authentication", :action => "show_liked_photos"})
 
+  get("/users/:path_username/feed", { :controller => "user_authentication", :action => "show_feed"})
 
 
 end
