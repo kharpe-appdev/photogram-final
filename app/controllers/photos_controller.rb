@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
 
     @list_of_photos = matching_photos.order({ :created_at => :desc })
 
-    render({ :template => "photos/index.html.erb" })
+    render({ :template => "layouts/photos/index.html.erb" })
   end
 
   def show
@@ -14,7 +14,7 @@ class PhotosController < ApplicationController
 
     @the_photo = matching_photos.at(0)
 
-    render({ :template => "photos/show.html.erb" })
+    render({ :template => "layouts/photos/show.html.erb" })
   end
 
   def create
